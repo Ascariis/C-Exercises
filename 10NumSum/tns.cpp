@@ -18,5 +18,6 @@ for (int i=0;i<10;i++) {
 
 cout<<"La somma dei valori e': "<<sum<<endl;
 cout<<"La media dei valori e': "<<med<<endl;
+
 }
 
