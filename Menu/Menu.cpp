@@ -35,7 +35,7 @@ do
 			break;
 		case 4: cout<<"il risultato e': "<<a/b<<endl;
 			break;
-		default:
+		default: cout<<"Mi prendi per il culo?";
 			break;
 	}
 
@@ -47,7 +47,7 @@ do
         return 0;
 		}
 
-} while (reply == 's' || reply == 'S');
+} while (reply == 's');
 
 	system("pause");
 }
