@@ -35,7 +35,7 @@ do
 			break;
 		case 4: cout<<"il risultato e': "<<a/b<<endl;
 			break;
-		default: cout<<"Mi prendi per il culo?";
+		default: cout<<"Mi prendi in giro?";
 			break;
 	}
 
