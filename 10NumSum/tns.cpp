@@ -4,6 +4,7 @@
 using namespace std;
 
 int main(){
+    
     float sum=0;
     float input;
     float med;
