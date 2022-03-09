@@ -4,9 +4,9 @@
 using namespace std;
 
 int main(){
-    int sum=0;
-    int input;
-    int med;
+    float sum=0;
+    float input;
+    float med;
 
 for (int i=0;i<10;i++) {
 
