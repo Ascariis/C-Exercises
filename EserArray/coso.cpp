@@ -1,7 +1,6 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
-#include <string>
 using namespace std;
 
 const int numElementi = 10;
@@ -18,11 +17,10 @@ void menuScelta()
     cout<<"7) Visualizzare l’elenco di tutti gli elementi pari;"<<endl;
     cout<<"8) Visualizzare tutti i valori dell’Array maggiori del numero inserito;"<<endl;
     cout<<"9) Dire se nell’array sono presenti almeno 7 valori distinti;"<<endl;
-    cout<<"10) Stampare a video l’array nell’ordine in cui si trova, ma sostituendo i valori negativi con la scritta NEG;"<<endl;
-    cout<<"11) Creare un secondo array che abbia un numero di posizioni pari alla quantità di numeri positivi presente nell’array originale,"<<endl; 
+    cout<<"10) Sostituire i valori negativi dell'array con la scritta 'NEG';"<<endl;
+    cout<<"11) Creare un secondo array la cui grandezza è pari alla quantità di numeri positivi presente nell’array originale,"<<endl; 
     cout<<"12) Numero di elementi positivi, negativi o nulli nell'array;"<<endl;
-    cout<<"13) Sostituire tutti gli elementi dell’array con una nuova serie di numeri pseudo-casuali"<<endl;
-
+    cout<<"13) Sostituire tutti gli elementi dell’array."<<endl;
 }
 
 void riempiArray()
@@ -97,19 +95,23 @@ void numMinore()
 
 void piuPresente() // !!!!WIP!!!!
 {
-    int pres;
-    for (int x = 0; x < numElementi; x++)
-    {
-        for (int i = 1; i < numElementi; i++)
-        {
-            if (ar[i] == ar[x])
-                pres = ar[i];
-            else
-                break;
-        }
-    }
+    int qtArray[numElementi];
+    
+    for (int i = 0; i < numElementi - 1; i++)
+        qtArray[i]=0;
+    
+    arrCrescente();
     printArray();
-    cout << "L'elemento più presente è: " << pres;
+    for (int x = 0; x < numElementi - 1; x++)
+        for (int i = x+1; i < numElementi; i++)
+        {
+            if (ar[x] == ar[i])
+                qtArray[x]+=1;
+        }
+
+    for (int x = 0; x < numElementi; x++)
+        cout << qtArray[x] << " ";
+    cout << "\n";
 }
 
 void arrSomma()
@@ -142,12 +144,48 @@ void maggInserito()
     cout << "\n";
 }
 
-void printNeg() // Molto sus
+void printNeg() 
 {
     for (int i = 0; i < numElementi; i++)
     {
-        if (ar[i] < 0)
+        if (ar[i]<0)
+            cout<<"NEG ";
+        else
+            cout<<ar[i]<<" ";
     }
+    cout<<"\n";
+}
+
+void setteValori()
+{
+    int count;
+    for (int x = 0; x < numElementi - 1; x++)
+    {
+        for (int y = 0; y < numElementi - 1; y++)
+            if (ar[y] != ar[y + 1])
+                count++;
+    }
+    printArray();
+    if (count>=7)
+        cout<<"Sono presenti 7 valori distinti."<<endl;
+    else
+        cout<<"Non sono presenti 7 valori distinti."<<endl;
+}
+
+void numPosNegNull()
+{
+    int null=0, pos=0, neg=0;
+
+    for (int i = 0; i < numElementi; i++)
+        if (ar[i] == 0)
+            null++;
+        else if (ar[i] > 0)
+            pos++;
+        else
+            neg++;
+
+    printArray();    
+    cout<<"Ci sono "<<pos<<" numeri positivi, "<<neg<<" numeri negativi e "<<null<<" nulli. \n";
 }
 
 int main()
@@ -197,16 +235,16 @@ int main()
             maggInserito();
             break;
         case 9:
-            arrCrescente();
+            setteValori();
             break;
         case 10:
-            arrCrescente();
+            printNeg();
             break;
         case 11:
             arrCrescente();
             break;
         case 12:
-            arrCrescente();
+            numPosNegNull();
             break;
         case 13:
             arrCrescente();
