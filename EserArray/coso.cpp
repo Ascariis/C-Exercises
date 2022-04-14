@@ -108,9 +108,11 @@ void piuPresente() // !!!!WIP!!!!
             if (ar[x] == ar[i])
                 qtArray[x]+=1;
         }
-
+    int max;
     for (int x = 0; x < numElementi; x++)
-        cout << qtArray[x] << " ";
+        for (int i = x+1; i < numElementi; i++);
+            if (qtArray[y]>qtArray[x])
+                
     cout << "\n";
 }
 
