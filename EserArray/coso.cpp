@@ -43,34 +43,47 @@ void printArray()
 
 void arrCrescente()
 {
-    int swap;
-    for (int x = 0; x < numElementi - 1; x++)
-    {
-        for (int y = 0; y < numElementi - 1; y++)
+    int  y, temp, x;
+    bool scambi = false;
+    do
+    {                                            
+        scambi = false;                            
+        for (y = 0; y < numElementi - 1 - x; y++)
+        {                                          
             if (ar[y] > ar[y + 1])
-            {
-                swap = ar[y];
+            {                                       
+                temp = ar[y];                       
                 ar[y] = ar[y + 1];
-                ar[y + 1] = swap;
-            }
-    }
-    printArray();
+                ar[y + 1] = temp;
+                scambi = true;                   
+            }                                  
+        }                                    
+       
+    }while (scambi == true);   
+    printArray();                                    
 }
 
 void arrDecrescente()
 {
-    int swap;
-    for (int x = 0; x < numElementi - 1; x++)
-    {
-        for (int y = 0; y < numElementi - 1; y++)
+    int  y, temp, x;
+    bool scambi = false;
+    do
+    {                                            
+        scambi = false;                            
+        for (y = 0; y < numElementi - 1 - x; y++)
+        {                                          
             if (ar[y] < ar[y + 1])
-            {
-                swap = ar[y];
+            {                                       
+                temp = ar[y];                       
                 ar[y] = ar[y + 1];
-                ar[y + 1] = swap;
-            }
-    }
-    printArray();
+                ar[y + 1] = temp;
+                scambi = true;
+                x++;                 
+            }                                  
+        }                                    
+       
+    }while (scambi == true);   
+    printArray(); 
 }
 
 void numMaggiore()
@@ -181,7 +194,7 @@ void setteValori()
     }
     printArray();
     if (count>=7)
-        cout<<"Sono presenti 7 valori distinti."<<endl;
+        cout<<"Sono presenti almeno 7 valori distinti."<<endl;
     else
         cout<<"Non sono presenti 7 valori distinti."<<endl;
 }
