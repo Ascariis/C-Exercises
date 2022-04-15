@@ -9,6 +9,8 @@ int ar[numElementi];
 void menuScelta()
 {
     cout<<"\n";
+    cout<<"0. Quit\n";
+    cout<<"\n";
     cout<<"1. Visualizza in ordine crescente"<<endl;
     cout<<"2. Visualizza in ordine decrescente"<<endl;
     cout<<"3. Visualizza il numero maggiore"<<endl;
@@ -255,9 +257,12 @@ int main()
         
         do
         {
-            cout<<"0. Quit\nInserire la propria scelta [1-13]: ";
+            cout<<"Inserire la propria scelta [1-13]: ";
             cin>>scelta;
         } while (scelta < 0 || scelta > 13);
+        
+        if (scelta==0)
+            break;
         
         switch (scelta)
         {
@@ -302,13 +307,14 @@ int main()
             break;
 
         default:
-            risposta='n';
             break;
                 
         }
 
         cout<<"Vuoi continuare con un'altra operazione? [Y/n] ";
         cin>>risposta;
+        
+        
 
     } while (risposta!='n' || risposta=='y');
 }
