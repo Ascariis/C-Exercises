@@ -43,12 +43,12 @@ void printArray()
 
 void arrCrescente()
 {
-    int  y, temp, x;
+    int  y, temp;
     bool scambi = false;
     do
     {                                            
         scambi = false;                            
-        for (y = 0; y < numElementi - 1 - x; y++)
+        for (y = 0; y < numElementi - 1; y++)
         {                                          
             if (ar[y] > ar[y + 1])
             {                                       
@@ -65,12 +65,12 @@ void arrCrescente()
 
 void arrDecrescente()
 {
-    int  y, temp, x;
+    int  y, temp;
     bool scambi = false;
     do
     {                                            
         scambi = false;                            
-        for (y = 0; y < numElementi - 1 - x; y++)
+        for (y = 0; y < numElementi - 1; y++)
         {                                          
             if (ar[y] < ar[y + 1])
             {                                       
@@ -78,7 +78,6 @@ void arrDecrescente()
                 ar[y] = ar[y + 1];
                 ar[y + 1] = temp;
                 scambi = true;
-                x++;                 
             }                                  
         }                                    
        
@@ -91,9 +90,8 @@ void numMaggiore()
     int max = ar[0];
     for (int x = 1; x < numElementi; x++)
         if (ar[x] > max)
-        {
             max = ar[x];
-        }
+        
     printArray();
     cout << "Il numero maggiore è " << max<<endl;
 }
@@ -158,17 +156,23 @@ void numPari()
 
 void maggInserito()
 {
-    int valore;
+    int valore, conta;
     cout << "Inserire un valore: ";
     cin >> valore;
 
     for (int i = 0; i < numElementi; i++)
         if (ar[i] > valore)
+        {    
             cout << ar[i] << " ";
-        else
-            break;
-    cout<<"Nessun numero è maggiore di quello inserito.";
-    cout << "\n";
+            conta++;
+        }
+    
+    if (conta<1)
+    {
+        cout<<"Nessun numero presente nell'array è maggiore di quello inserito. ";
+        cout << "\n";
+    }
+    
 }
 
 void printNeg() 
@@ -185,15 +189,23 @@ void printNeg()
 
 void setteValori()
 {
-    int count;
-    for (int x = 0; x < numElementi - 1; x++)
-    {
-        for (int y = 0; y < numElementi - 1; y++)
-            if (ar[y] != ar[y + 1])
-                count++;
-    }
+    int count=1;
+    int arr[numElementi];
+    for (int i = 0; i < numElementi; i++)
+        arr[i]=1;
+    
+    for (int i = 0; i < numElementi; i++)
+        for (int y = 1; y < numElementi; y++)
+            if (ar[y] == ar[i])
+                arr[i]+=1;
+
+    int max = arr[0];
+    for (int x = 1; x < numElementi; x++)
+        if (arr[x] > max)
+            max = arr[x];
+
     printArray();
-    if (count>=7)
+    if (max<5)
         cout<<"Sono presenti almeno 7 valori distinti."<<endl;
     else
         cout<<"Non sono presenti 7 valori distinti."<<endl;
@@ -272,6 +284,7 @@ int main()
         {
             cout<<"Inserire la propria scelta [1-13]: ";
             cin>>scelta;
+            cout<<"\n";
         } while (scelta < 0 || scelta > 13);
         
         if (scelta==0)
@@ -324,10 +337,8 @@ int main()
                 
         }
 
-        cout<<"Vuoi continuare con un'altra operazione? [Y/n] ";
+        cout<<"\nVuoi continuare con un'altra operazione? [Y/n] ";
         cin>>risposta;
         
-        
-
     } while (risposta!='n' || risposta=='y');
 }
