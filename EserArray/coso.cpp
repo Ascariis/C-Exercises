@@ -256,7 +256,7 @@ void arrayUtente()
     cout<<"Inserire il numero massimo: \n";
     cin>>max;
 
-    int range = max -min + 1;
+    int range = max - min + 1;
     
     for (int i = 0; i < numElementi; i++)
     {
