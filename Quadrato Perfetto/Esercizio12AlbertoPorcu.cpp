@@ -1,21 +1,21 @@
 // Verificare se un numero è un quadrato perfetto.
-// (int)num per 
+// (int)num per
 
+#include <math.h>
 
 #include <iostream>
-#include <math.h>
 
 using namespace std;
 
-int main(){
-    float num;
+int main() {
+  float num;
 
-    cout<<"Inserire un valore: ";
-    cin>>num;
+  cout << "Inserire un valore: ";
+  cin >> num;
 
-    num=sqrt(num);
-    if(num==(int)num)
-        cout<<"Il numero inserito è un quadrato perfetto.";
-    else
-        cout<<"Il numero inserito non è un quadrato perfetto.";
+  num = sqrt(num);
+  if (num == (int)num)
+    cout << "Il numero inserito è un quadrato perfetto.";
+  else
+    cout << "Il numero inserito non è un quadrato perfetto.";
 }

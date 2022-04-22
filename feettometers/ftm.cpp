@@ -1,27 +1,26 @@
 #include <iostream>
-using namespace std; 
+using namespace std;
 
-int main(){
-    char reply;
+int main() {
+  char reply;
 
-    do
-    {
-        system("cls") && system("clear");
-    
+  do {
+    system("cls") && system("clear");
+
     int feet;
-    cout<<"Inserire il valore in piedi... ";
-    cin>>feet;
+    cout << "Inserire il valore in piedi... ";
+    cin >> feet;
 
-    cout<<"Il valore di "<<feet<<" piedi in metri e': "<<feet*0.3048<<endl; 
-    cout<<"Vuoi eseguire altre conversioni? [s/n] ";
+    cout << "Il valore di " << feet << " piedi in metri e': " << feet * 0.3048
+         << endl;
+    cout << "Vuoi eseguire altre conversioni? [s/n] ";
 
-    cin>>reply;
+    cin >> reply;
 
-    if (reply == 'n'){
-        system("cls") && system("clear");
-        return 0;
-        }
+    if (reply == 'n') {
+      system("cls") && system("clear");
+      return 0;
+    }
 
-    } while(reply == 's');
-    
+  } while (reply == 's');
 }
