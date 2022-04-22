@@ -1,5 +1,6 @@
 // Verificare se un numero è un quadrato perfetto.
-// (int)num per
+// (int)num per estrarre la parte intera di un valore
+// decimale.
 
 #include <math.h>
 
