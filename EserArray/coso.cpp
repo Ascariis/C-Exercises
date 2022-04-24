@@ -29,7 +29,6 @@ void menuScelta() {
   cout << "13. Sostituire tutti gli elementi dell’array" << endl;
   cout << "\n";
 }
-
 void riempiArray() {
   srand(time(0));
   for (int x = 0; x < numElementi; x++) ar[x] = rand() % 21 - 10;
