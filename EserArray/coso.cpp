@@ -2,10 +2,11 @@
 #include <time.h>
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
-const int numElementi = 10;
-int ar[numElementi];
+const int Size = 10;
+int ar[Size];
 
 void menuScelta() {
   cout << "\n";
@@ -32,11 +33,11 @@ void menuScelta() {
 
 void riempiArray() {
   srand(time(0));
-  for (int x = 0; x < numElementi; x++) ar[x] = rand() % 21 - 10;
+  for (int x = 0; x < Size; x++) ar[x] = rand() % 21 - 10;
 }
 
 void printArray() {
-  for (int x = 0; x < numElementi; x++) cout << ar[x] << " ";
+  for (int x = 0; x < Size; x++) cout << ar[x] << " ";
   cout << "\n";
 }
 
@@ -45,7 +46,7 @@ void arrCrescente() {
   bool scambi = false;
   do {
     scambi = false;
-    for (y = 0; y < numElementi - 1; y++) {
+    for (y = 0; y < Size - 1; y++) {
       if (ar[y] > ar[y + 1]) {
         temp = ar[y];
         ar[y] = ar[y + 1];
@@ -63,7 +64,7 @@ void arrDecrescente() {
   bool scambi = false;
   do {
     scambi = false;
-    for (y = 0; y < numElementi - 1; y++) {
+    for (y = 0; y < Size - 1; y++) {
       if (ar[y] < ar[y + 1]) {
         temp = ar[y];
         ar[y] = ar[y + 1];
@@ -78,7 +79,7 @@ void arrDecrescente() {
 
 void numMaggiore() {
   int max = ar[0];
-  for (int x = 1; x < numElementi; x++)
+  for (int x = 1; x < Size; x++)
     if (ar[x] > max) max = ar[x];
 
   printArray();
@@ -87,7 +88,7 @@ void numMaggiore() {
 
 void numMinore() {
   int min = ar[0];
-  for (int x = 1; x < numElementi; x++)
+  for (int x = 1; x < Size; x++)
     if (ar[x] < min) min = ar[x];
 
   printArray();
@@ -98,7 +99,7 @@ void piuPresente() {
   arrCrescente();
 
   int max = 1, ris = ar[0], curr = 1;
-  for (int i = 1; i < numElementi; i++) {
+  for (int i = 1; i < Size; i++) {
     if (ar[i] == ar[i - 1])
       curr++;
     else {
@@ -112,7 +113,7 @@ void piuPresente() {
 
   if (curr > max) {
     max = curr;
-    ris = ar[numElementi - 1];
+    ris = ar[Size - 1];
   }
 
   cout << "Il numero più presente nell'array è: " << ris << endl;
@@ -120,14 +121,14 @@ void piuPresente() {
 
 void arrSomma() {
   int sum = ar[0];
-  for (int i = 1; i < numElementi; i++) sum += ar[i];
+  for (int i = 1; i < Size; i++) sum += ar[i];
 
   printArray();
   cout << "La somma dei valori dell'array equivale a: " << sum << endl;
 }
 
 void numPari() {
-  for (int i = 0; i < numElementi; i++)
+  for (int i = 0; i < Size; i++)
     if (ar[i] % 2 == 0) cout << ar[i] << " ";
   cout << "\n";
 }
@@ -137,7 +138,7 @@ void maggInserito() {
   cout << "Inserire un valore: ";
   cin >> valore;
 
-  for (int i = 0; i < numElementi; i++)
+  for (int i = 0; i < Size; i++)
     if (ar[i] > valore) {
       cout << ar[i] << " ";
       conta++;
@@ -150,7 +151,7 @@ void maggInserito() {
 }
 
 void printNeg() {
-  for (int i = 0; i < numElementi; i++) {
+  for (int i = 0; i < Size; i++) {
     if (ar[i] < 0)
       cout << "NEG ";
     else
@@ -161,15 +162,15 @@ void printNeg() {
 
 void setteValori() {
   int count = 1;
-  int arr[numElementi];
-  for (int i = 0; i < numElementi; i++) arr[i] = 1;
+  int arr[Size];
+  for (int i = 0; i < Size; i++) arr[i] = 1;
 
-  for (int i = 0; i < numElementi; i++)
-    for (int y = 1; y < numElementi; y++)
+  for (int i = 0; i < Size; i++)
+    for (int y = 1; y < Size; y++)
       if (ar[y] == ar[i]) arr[i] += 1;
 
   int max = arr[0];
-  for (int x = 1; x < numElementi; x++)
+  for (int x = 1; x < Size; x++)
     if (arr[x] > max) max = arr[x];
 
   printArray();
@@ -182,7 +183,7 @@ void setteValori() {
 void numPosNegNull() {
   int null = 0, pos = 0, neg = 0;
 
-  for (int i = 0; i < numElementi; i++)
+  for (int i = 0; i < Size; i++)
     if (ar[i] == 0)
       null++;
     else if (ar[i] > 0)
@@ -196,19 +197,31 @@ void numPosNegNull() {
 }
 
 void arNumPos() {
+  vector<int> newAr;
+
+  for (int i = 0; i < Size; i++) 
+    if (ar[i] > 0) 
+      newAr.push_back(ar[i]);
+  
+  for (int i = 0; i < newAr.size(); i++)
+    cout << newAr[i] << " ";
+
+  
+  // Versione senza vettore  
+  /*
   int size = 0;
   arrCrescente();
 
-  for (int i = 0; i < numElementi; i++)
+  for (int i = 0; i < Size; i++)
     if (ar[i] > 0) size++;
 
   int arPos[size];
 
-  for (int i = 0; i < numElementi; i++)
+  for (int i = 0; i < Size; i++)
     if (ar[i] > 0) {
       arPos[i] = ar[i];
       cout << arPos[i] << " ";
-    }
+    }*/
   cout << endl;
 }
 
@@ -222,7 +235,7 @@ void arrayUtente() {
 
   int range = max - min + 1;
 
-  for (int i = 0; i < numElementi; i++) {
+  for (int i = 0; i < Size; i++) {
     ar[i] = rand() % range + min;
     cout << ar[i] << " ";
   }
