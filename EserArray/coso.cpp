@@ -150,16 +150,6 @@ void maggInserito() {
   }
 }
 
-void printNeg() {
-  for (int i = 0; i < Size; i++) {
-    if (ar[i] < 0)
-      cout << "NEG ";
-    else
-      cout << ar[i] << " ";
-  }
-  cout << "\n";
-}
-
 void setteValori() {
   int count = 1;
   int arr[Size];
@@ -180,20 +170,14 @@ void setteValori() {
     cout << "Non sono presenti 7 valori distinti." << endl;
 }
 
-void numPosNegNull() {
-  int null = 0, pos = 0, neg = 0;
-
-  for (int i = 0; i < Size; i++)
-    if (ar[i] == 0)
-      null++;
-    else if (ar[i] > 0)
-      pos++;
+void printNeg() {
+  for (int i = 0; i < Size; i++) {
+    if (ar[i] < 0)
+      cout << "NEG ";
     else
-      neg++;
-
-  printArray();
-  cout << "Ci sono " << pos << " numeri positivi, " << neg
-       << " numeri negativi e " << null << " nulli. \n";
+      cout << ar[i] << " ";
+  }
+  cout << "\n";
 }
 
 void arNumPos() {
@@ -223,6 +207,22 @@ void arNumPos() {
       cout << arPos[i] << " ";
     }*/
   cout << endl;
+}
+
+void numPosNegNull() {
+  int null = 0, pos = 0, neg = 0;
+
+  for (int i = 0; i < Size; i++)
+    if (ar[i] == 0)
+      null++;
+    else if (ar[i] > 0)
+      pos++;
+    else
+      neg++;
+
+  printArray();
+  cout << "Ci sono " << pos << " numeri positivi, " << neg
+       << " numeri negativi e " << null << " nulli. \n";
 }
 
 void arrayUtente() {
