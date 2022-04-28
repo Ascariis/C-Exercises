@@ -43,6 +43,7 @@ void printArray() {
   cout << "\n";
 }
 
+// BubbleSort + Sentinella
 void arrCrescente() {
   int y, temp;
   bool scambi = false;
