@@ -11,7 +11,7 @@ int ar[Size];
 void menuScelta() {
   cout << "\n";
   cout << "0. Quit\n";
-  cout << "\n";
+  cout << " \n";
   cout << "1. Visualizza in ordine crescente" << endl;
   cout << "2. Visualizza in ordine decrescente" << endl;
   cout << "3. Visualizza il numero maggiore" << endl;
@@ -199,15 +199,15 @@ void numPosNegNull() {
 void arNumPos() {
   vector<int> newAr;
 
-  for (int i = 0; i < Size; i++) 
-    if (ar[i] > 0) 
+  for (int i = 0; i < Size; i++)
+    if (ar[i] > 0)
       newAr.push_back(ar[i]);
-  
+
   for (int i = 0; i < newAr.size(); i++)
     cout << newAr[i] << " ";
 
-  
-  // Versione senza vettore  
+
+  // Versione senza vettore
   /*
   int size = 0;
   arrCrescente();
