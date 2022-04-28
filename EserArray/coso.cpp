@@ -33,11 +33,13 @@ void menuScelta() {
 
 void riempiArray() {
   srand(time(0));
-  for (int x = 0; x < Size; x++) ar[x] = rand() % 21 - 10;
+  for (int x = 0; x < Size; x++)
+    ar[x] = rand() % 21 - 10;
 }
 
 void printArray() {
-  for (int x = 0; x < Size; x++) cout << ar[x] << " ";
+  for (int x = 0; x < Size; x++)
+    cout << ar[x] << " ";
   cout << "\n";
 }
 
@@ -80,7 +82,8 @@ void arrDecrescente() {
 void numMaggiore() {
   int max = ar[0];
   for (int x = 1; x < Size; x++)
-    if (ar[x] > max) max = ar[x];
+    if (ar[x] > max)
+      max = ar[x];
 
   printArray();
   cout << "Il numero maggiore è " << max << endl;
@@ -89,7 +92,8 @@ void numMaggiore() {
 void numMinore() {
   int min = ar[0];
   for (int x = 1; x < Size; x++)
-    if (ar[x] < min) min = ar[x];
+    if (ar[x] < min)
+      min = ar[x];
 
   printArray();
   cout << "Il numero minore è " << min << endl;
@@ -121,7 +125,8 @@ void piuPresente() {
 
 void arrSomma() {
   int sum = ar[0];
-  for (int i = 1; i < Size; i++) sum += ar[i];
+  for (int i = 1; i < Size; i++)
+    sum += ar[i];
 
   printArray();
   cout << "La somma dei valori dell'array equivale a: " << sum << endl;
@@ -129,7 +134,8 @@ void arrSomma() {
 
 void numPari() {
   for (int i = 0; i < Size; i++)
-    if (ar[i] % 2 == 0) cout << ar[i] << " ";
+    if (ar[i] % 2 == 0)
+      cout << ar[i] << " ";
   cout << "\n";
 }
 
@@ -163,15 +169,18 @@ void printNeg() {
 void setteValori() {
   int count = 1;
   int arr[Size];
-  for (int i = 0; i < Size; i++) arr[i] = 1;
+  for (int i = 0; i < Size; i++)
+    arr[i] = 1;
 
   for (int i = 0; i < Size; i++)
     for (int y = 1; y < Size; y++)
-      if (ar[y] == ar[i]) arr[i] += 1;
+      if (ar[y] == ar[i])
+        arr[i] += 1;
 
   int max = arr[0];
   for (int x = 1; x < Size; x++)
-    if (arr[x] > max) max = arr[x];
+    if (arr[x] > max)
+      max = arr[x];
 
   printArray();
   if (max < 5)
@@ -205,7 +214,6 @@ void arNumPos() {
 
   for (int i = 0; i < newAr.size(); i++)
     cout << newAr[i] << " ";
-
 
   // Versione senza vettore
   /*
@@ -260,51 +268,52 @@ int main() {
       cout << "\n";
     } while (scelta < 0 || scelta > 13);
 
-    if (scelta == 0) break;
+    if (scelta == 0)
+      break;
 
     switch (scelta) {
-      case 1:
-        arrCrescente();
-        break;
-      case 2:
-        arrDecrescente();
-        break;
-      case 3:
-        numMaggiore();
-        break;
-      case 4:
-        numMinore();
-        break;
-      case 5:
-        piuPresente();
-        break;
-      case 6:
-        arrSomma();
-        break;
-      case 7:
-        numPari();
-        break;
-      case 8:
-        maggInserito();
-        break;
-      case 9:
-        setteValori();
-        break;
-      case 10:
-        printNeg();
-        break;
-      case 11:
-        arNumPos();
-        break;
-      case 12:
-        numPosNegNull();
-        break;
-      case 13:
-        arrayUtente();
-        break;
+    case 1:
+      arrCrescente();
+      break;
+    case 2:
+      arrDecrescente();
+      break;
+    case 3:
+      numMaggiore();
+      break;
+    case 4:
+      numMinore();
+      break;
+    case 5:
+      piuPresente();
+      break;
+    case 6:
+      arrSomma();
+      break;
+    case 7:
+      numPari();
+      break;
+    case 8:
+      maggInserito();
+      break;
+    case 9:
+      setteValori();
+      break;
+    case 10:
+      printNeg();
+      break;
+    case 11:
+      arNumPos();
+      break;
+    case 12:
+      numPosNegNull();
+      break;
+    case 13:
+      arrayUtente();
+      break;
 
-      default:
-        break;
+    default:
+      break;
     }
 
     cout << "\nVuoi continuare con un'altra operazione? [Y/n] ";
