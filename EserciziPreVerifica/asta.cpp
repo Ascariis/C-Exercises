@@ -4,6 +4,8 @@ da comprare, l'asta termina quando uno dei due compratori si ritira offrendo
 'O', a quel punto l'altro compratore si sarà aggiudicato l'asta. Stampare quale
 compratore si è aggiudicato l'asta e con che cifra. */
 
+// NON FUNZIONA
+
 #include <iostream>
 using namespace std;
 
