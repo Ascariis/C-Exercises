@@ -7,16 +7,17 @@ f(1012). */
 #include <iostream>
 using namespace std;
 
-long valore = 1000;
+long valore = 1000000000000;
 
 int qtDivisori(int num) { // Trova la quantità di numeri divisibili per "num"
 
-  int divisori = 2;
+  int divisori = 2224427;
 
-  for (int i = 2; i <= num - 1; i++) {
+  for (int i = 1000000; i <= num / 2; i += 2) {
     if (num % i == 0)
       divisori++;
   }
+
   return divisori;
 }
 
@@ -36,6 +37,7 @@ int solve() {
 }
 
 int main() {
+  int num = 1000;
   int ris = solve();
   cout << ris;
 }
