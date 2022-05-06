@@ -95,7 +95,7 @@ void numMinore() {
   for (int x = 1; x < Size; x++)
     if (ar[x] < min)
       min = ar[x];
-
+ 
   printArray();
   cout << "Il numero minore è " << min << endl;
 }
